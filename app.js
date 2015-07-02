@@ -28,18 +28,40 @@ app.factory('UserService', function(){
 
 })
 
-app.controller('PokemonShowCtrl',function($scope, $routeParams, $http, UserService){
+app.controller('PokemonShowCtrl',function($scope, $routeParams, PokemonService){
   var id = $routeParams.id;
-  var endpoint = "https://pokemon-api.herokuapp.com/pokemons/"
 
-  $http
-      .get(endpoint + id, {params: { api_key: UserService.current_user().api_key }})
-      .success(function(response){
-          $scope.hello = response.name;
-      })
-      .error(function(rejection) {
-          $scope.hello = "ERROR";
-      });
+  PokemonService.get(id).then(
+    function(response){
+      $scope.hello = response.name;
+    },
+    function(rejection){}
+  );
+
+})
+
+app.factory('PokemonService', function($http, $q, UserService){
+
+  var endpoint = "https://pokemon-api.herokuapp.com/pokemons/"
+  var PokemonService = {};
+
+  PokemonService.get = function(id){
+    var deferred = $q.defer()
+
+    $http
+        .get(endpoint + id, {params: { api_key: UserService.current_user().api_key }})
+        .success(function(response){
+            deferred.resolve(response);
+        })
+        .error(function(rejection) {
+            deferred.reject(rejection);
+        });
+
+    return deferred.promise;
+
+  }
+
+  return PokemonService;
 
 })
 
