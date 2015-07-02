@@ -16,10 +16,10 @@ app.config(function($routeProvider){
 
 app.controller('PokemonShowCtrl', function($scope, $routeParams, $http){
   var id = $routeParams.id;
-  var endpoint = "https://pokemon-api.herokuapp.com/pokemons/127?api_key=WDI18RULES"
+  var endpoint = "https://pokemon-api.herokuapp.com/pokemons/"
 
   $http
-      .get(endpoint)
+      .get(endpoint + id, {params: { api_key: "WDI18RULES" }})
       .success(function(response){
           $scope.hello = response.name;
       })
