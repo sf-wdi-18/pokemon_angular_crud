@@ -4,7 +4,11 @@ app.config(function($routeProvider){
 
   $routeProvider
     .when('/', {
-      template: '{{ hello }} this works!',
+      templateUrl: '/home.html',
+      controller: 'MainCtrl'
+    })
+    .when('/z', {
+      template: "{{hello}} I'm on z",
       controller: 'MainCtrl'
     })
 
