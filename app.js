@@ -1,8 +1,12 @@
 var app = angular.module('pokemonCrudApp', ['ngRoute']);
 
-app.config(function($route){
+app.config(function($routeProvider){
 
-
+  $routeProvider
+    .when('/', {
+      template: '{{ hello }} this works!',
+      controller: 'MainCtrl'
+    })
 
 })
 
