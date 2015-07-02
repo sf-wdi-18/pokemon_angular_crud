@@ -1,6 +1,12 @@
-var app = angular.module('pokemonCrudApp', []);
+var app = angular.module('pokemonCrudApp', ['ngRoute']);
 
-// app.controller('MainCtrl', function($scope){
-//   $scope.hello = "TESTING..."
-// })
+app.config(function($route){
+
+
+
+})
+
+app.controller('MainCtrl', function($scope){
+  $scope.hello = "TESTING..."
+})
 
