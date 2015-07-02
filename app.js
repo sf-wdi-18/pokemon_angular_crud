@@ -7,14 +7,14 @@ app.config(function($routeProvider){
       templateUrl: '/home.html',
       controller: 'MainCtrl'
     })
-    .when('/z', {
-      template: "{{hello}} I'm on z",
+    .when('/pokemon/:id', {
+      template: '{{hello}}',
       controller: 'MainCtrl'
     })
 
 })
 
-app.controller('MainCtrl', function($scope){
-  $scope.hello = "TESTING..."
+app.controller('MainCtrl', function($scope, $routeParams){
+  $scope.hello = $routeParams.id;
 })
 
