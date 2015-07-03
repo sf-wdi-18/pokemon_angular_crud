@@ -20,10 +20,10 @@ In the Chrome Console, type:
 window.location // or just `location`
 ```
 
-If you [view this readme on github]('/#Instructions') you'll see that in addition to going to the readme page, the page automagically scrolls down to the "Instructions" heading. This happens because 1) The Instructions heading tag has an `id` of "Instructions", and 2) because the URL you visted contains a hash fragment: `#Instrutions`.
+If you [view this readme on github](#instructions) you'll see that in addition to going to the readme page, the page automagically scrolls down to the "Instructions" heading. This happens because 1) The Instructions heading tag has an `id` of "Instructions", and 2) because the URL you visted contains a hash fragment: `#Instrutions`.
 
-* Can you think of a way to read the hash when the page loads?
-    - E.g. when I go to, `somesinglepageapp.com/#put-me-on-the-page` I see "put-me-on-the-page" on the page.
+* Can you think of a way to read the hash string when the page loads?
+    - E.g. when I go to, `somesinglepageapp.com/#put-me-on-the-page` I see "put-me-on-the-page" on the page?
 
 Another interesting property of the location hash is that when it changes it doesn't trigger a page refresh.
 
